@@ -1,6 +1,6 @@
 {
   "name": "@uniswap/universal-router-sdk",
-  "version": "3.4.2-auroria.1",
+  "version": "3.4.3-auroria.1",
   "repository": "https://github.com/adimov-eth/universal-router-sdk.git",
   "description": "sdk for integrating with the Universal Router contracts",
   "keywords": [
@@ -38,7 +38,7 @@
     "@uniswap/router-sdk": "github:adimov-eth/router-sdk",
     "@uniswap/sdk-core": "github:adimov-eth/sdk-core",
     "@uniswap/universal-router": "1.6.0",
-    "@uniswap/v2-sdk": "^4.4.1",
+    "@uniswap/v2-sdk": "4.4.1",
     "@uniswap/v3-sdk": "github:adimov-eth/v3-sdk",
     "bignumber.js": "^9.0.2",
     "ethers": "^5.7.0",

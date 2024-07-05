@@ -3014,7 +3014,7 @@ __metadata:
     "@uniswap/router-sdk": "github:adimov-eth/router-sdk"
     "@uniswap/sdk-core": "github:adimov-eth/sdk-core"
     "@uniswap/universal-router": 1.6.0
-    "@uniswap/v2-sdk": ^4.4.1
+    "@uniswap/v2-sdk": 4.4.1
     "@uniswap/v3-sdk": "github:adimov-eth/v3-sdk"
     bignumber.js: ^9.0.2
     chai: ^4.3.6
@@ -3050,7 +3050,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@uniswap/v2-sdk@npm:^4.3.2, @uniswap/v2-sdk@npm:^4.4.1":
+"@uniswap/v2-sdk@npm:4.4.1, @uniswap/v2-sdk@npm:^4.3.2":
   version: 4.4.1
   resolution: "@uniswap/v2-sdk@npm:4.4.1"
   dependencies:
