@@ -10,6 +10,56 @@ import { TradeType, Percent, CurrencyAmount, Ether, Token } from '@uniswap/sdk-c
 import 'jsbi';
 import 'bignumber.js';
 
+function _arrayLikeToArray(r, a) {
+  (null == a || a > r.length) && (a = r.length);
+  for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e];
+  return n;
+}
+function _defineProperties(e, r) {
+  for (var t = 0; t < r.length; t++) {
+    var o = r[t];
+    o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o);
+  }
+}
+function _createClass(e, r, t) {
+  return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", {
+    writable: !1
+  }), e;
+}
+function _createForOfIteratorHelperLoose(r, e) {
+  var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"];
+  if (t) return (t = t.call(r)).next.bind(t);
+  if (Array.isArray(r) || (t = _unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) {
+    t && (r = t);
+    var o = 0;
+    return function () {
+      return o >= r.length ? {
+        done: !0
+      } : {
+        done: !1,
+        value: r[o++]
+      };
+    };
+  }
+  throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+function _extends() {
+  return _extends = Object.assign ? Object.assign.bind() : function (n) {
+    for (var e = 1; e < arguments.length; e++) {
+      var t = arguments[e];
+      for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]);
+    }
+    return n;
+  }, _extends.apply(null, arguments);
+}
+function _inheritsLoose(t, o) {
+  t.prototype = Object.create(o.prototype), t.prototype.constructor = t, _setPrototypeOf(t, o);
+}
+function _setPrototypeOf(t, e) {
+  return _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function (t, e) {
+    return t.__proto__ = e, t;
+  }, _setPrototypeOf(t, e);
+}
 function _toPrimitive(t, r) {
   if ("object" != typeof t || !t) return t;
   var e = t[Symbol.toPrimitive];
@@ -22,81 +72,14 @@ function _toPrimitive(t, r) {
 }
 function _toPropertyKey(t) {
   var i = _toPrimitive(t, "string");
-  return "symbol" == typeof i ? i : String(i);
+  return "symbol" == typeof i ? i : i + "";
 }
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor);
+function _unsupportedIterableToArray(r, a) {
+  if (r) {
+    if ("string" == typeof r) return _arrayLikeToArray(r, a);
+    var t = {}.toString.call(r).slice(8, -1);
+    return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0;
   }
-}
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  Object.defineProperty(Constructor, "prototype", {
-    writable: false
-  });
-  return Constructor;
-}
-function _extends() {
-  _extends = Object.assign ? Object.assign.bind() : function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-    return target;
-  };
-  return _extends.apply(this, arguments);
-}
-function _inheritsLoose(subClass, superClass) {
-  subClass.prototype = Object.create(superClass.prototype);
-  subClass.prototype.constructor = subClass;
-  _setPrototypeOf(subClass, superClass);
-}
-function _setPrototypeOf(o, p) {
-  _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
-    o.__proto__ = p;
-    return o;
-  };
-  return _setPrototypeOf(o, p);
-}
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
-  return arr2;
-}
-function _createForOfIteratorHelperLoose(o, allowArrayLike) {
-  var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
-  if (it) return (it = it.call(o)).next.bind(it);
-  if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
-    if (it) o = it;
-    var i = 0;
-    return function () {
-      if (i >= o.length) return {
-        done: true
-      };
-      return {
-        done: false,
-        value: o[i++]
-      };
-    };
-  }
-  throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
 var RouterTradeType;
@@ -404,20 +387,21 @@ var UniswapTrade = /*#__PURE__*/function () {
     }
     if (this.options.safeMode) planner.addCommand(CommandType.SWEEP, [ETH_ADDRESS, this.options.recipient, 0]);
   };
-  _createClass(UniswapTrade, [{
+  return _createClass(UniswapTrade, [{
     key: "inputRequiresWrap",
     get: function get() {
       return this.trade.inputAmount.currency.isNative;
     }
   }]);
-  return UniswapTrade;
 }();
 // encode a uniswap v2 swap
 function addV2Swap(planner, _ref, tradeType, options, payerIsUser, routerMustCustody) {
   var route = _ref.route,
     inputAmount = _ref.inputAmount,
     outputAmount = _ref.outputAmount;
-  var trade = new Trade(route, tradeType == TradeType.EXACT_INPUT ? inputAmount : outputAmount, tradeType);
+  var trade = new Trade(
+  //@ts-ignore
+  route, tradeType == TradeType.EXACT_INPUT ? inputAmount : outputAmount, tradeType);
   if (tradeType == TradeType.EXACT_INPUT) {
     planner.addCommand(CommandType.V2_SWAP_EXACT_IN, [
     // if native, we have to unwrap so keep in the router for now
@@ -725,10 +709,10 @@ var SwapRouter = /*#__PURE__*/function () {
 SwapRouter.INTERFACE = /*#__PURE__*/new Interface(abi$7);
 
 var CryptopunkTrade = /*#__PURE__*/function (_NFTTrade) {
-  _inheritsLoose(CryptopunkTrade, _NFTTrade);
   function CryptopunkTrade(orders) {
     return _NFTTrade.call(this, Market.Cryptopunks, orders) || this;
   }
+  _inheritsLoose(CryptopunkTrade, _NFTTrade);
   var _proto = CryptopunkTrade.prototype;
   _proto.encode = function encode(planner, config) {
     for (var _iterator = _createForOfIteratorHelperLoose(this.orders), _step; !(_step = _iterator()).done;) {
@@ -2383,10 +2367,10 @@ var abi = [
 ];
 
 var FoundationTrade = /*#__PURE__*/function (_NFTTrade) {
-  _inheritsLoose(FoundationTrade, _NFTTrade);
   function FoundationTrade(orders) {
     return _NFTTrade.call(this, Market.Foundation, orders) || this;
   }
+  _inheritsLoose(FoundationTrade, _NFTTrade);
   var _proto = FoundationTrade.prototype;
   _proto.encode = function encode(planner, config) {
     for (var _iterator = _createForOfIteratorHelperLoose(this.orders), _step; !(_step = _iterator()).done;) {
@@ -4420,10 +4404,10 @@ var abi$1 = [
 ];
 
 var LooksRareV2Trade = /*#__PURE__*/function (_NFTTrade) {
-  _inheritsLoose(LooksRareV2Trade, _NFTTrade);
   function LooksRareV2Trade(orders) {
     return _NFTTrade.call(this, Market.LooksRareV2, orders) || this;
   }
+  _inheritsLoose(LooksRareV2Trade, _NFTTrade);
   var _proto = LooksRareV2Trade.prototype;
   _proto.encode = function encode(planner, config) {
     var _this$refactorAPIData = this.refactorAPIData(this.orders),
@@ -4757,10 +4741,10 @@ var abi$2 = [
 ];
 
 var NFT20Trade = /*#__PURE__*/function (_NFTTrade) {
-  _inheritsLoose(NFT20Trade, _NFTTrade);
   function NFT20Trade(orders) {
     return _NFTTrade.call(this, Market.NFT20, orders) || this;
   }
+  _inheritsLoose(NFT20Trade, _NFTTrade);
   var _proto = NFT20Trade.prototype;
   _proto.encode = function encode(planner, config) {
     for (var _iterator = _createForOfIteratorHelperLoose(this.orders), _step; !(_step = _iterator()).done;) {
@@ -5418,10 +5402,10 @@ var abi$3 = [
 ];
 
 var NFTXTrade = /*#__PURE__*/function (_NFTTrade) {
-  _inheritsLoose(NFTXTrade, _NFTTrade);
   function NFTXTrade(orders) {
     return _NFTTrade.call(this, Market.NFTX, orders) || this;
   }
+  _inheritsLoose(NFTXTrade, _NFTTrade);
   var _proto = NFTXTrade.prototype;
   _proto.encode = function encode(planner, config) {
     for (var _iterator = _createForOfIteratorHelperLoose(this.orders), _step; !(_step = _iterator()).done;) {
@@ -8085,10 +8069,10 @@ var abi$4 = [
 ];
 
 var SeaportTrade = /*#__PURE__*/function (_NFTTrade) {
-  _inheritsLoose(SeaportTrade, _NFTTrade);
   function SeaportTrade(orders) {
     return _NFTTrade.call(this, Market.Seaport, orders) || this;
   }
+  _inheritsLoose(SeaportTrade, _NFTTrade);
   var _proto = SeaportTrade.prototype;
   _proto.encode = function encode(planner, config) {
     for (var _iterator = _createForOfIteratorHelperLoose(this.orders), _step; !(_step = _iterator()).done;) {
@@ -9371,10 +9355,10 @@ var abi$5 = [
 ];
 
 var SudoswapTrade = /*#__PURE__*/function (_NFTTrade) {
-  _inheritsLoose(SudoswapTrade, _NFTTrade);
   function SudoswapTrade(orders) {
     return _NFTTrade.call(this, Market.Sudoswap, orders) || this;
   }
+  _inheritsLoose(SudoswapTrade, _NFTTrade);
   var _proto = SudoswapTrade.prototype;
   _proto.encode = function encode(planner, config) {
     for (var _iterator = _createForOfIteratorHelperLoose(this.orders), _step; !(_step = _iterator()).done;) {
@@ -10530,10 +10514,10 @@ var abi$6 = [
 ];
 
 var X2Y2Trade = /*#__PURE__*/function (_NFTTrade) {
-  _inheritsLoose(X2Y2Trade, _NFTTrade);
   function X2Y2Trade(orders) {
     return _NFTTrade.call(this, Market.X2Y2, orders) || this;
   }
+  _inheritsLoose(X2Y2Trade, _NFTTrade);
   var _proto = X2Y2Trade.prototype;
   _proto.encode = function encode(planner, config) {
     for (var _iterator = _createForOfIteratorHelperLoose(this.orders), _step; !(_step = _iterator()).done;) {
