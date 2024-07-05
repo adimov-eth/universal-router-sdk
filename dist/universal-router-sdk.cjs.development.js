@@ -5,8 +5,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var invariant = _interopDefault(require('tiny-invariant'));
-var UniversalRouter_json = require('@uniswap/universal-router/artifacts/contracts/UniversalRouter.sol/UniversalRouter.json');
-var abi$7 = require('@ethersproject/abi');
+var UniversalRouter = _interopDefault(require('@uniswap/universal-router/artifacts/contracts/UniversalRouter.sol/UniversalRouter.json'));
+var abi$8 = require('@ethersproject/abi');
 var ethers = require('ethers');
 var utils = require('ethers/lib/utils');
 var v2Sdk = require('@uniswap/v2-sdk');
@@ -545,6 +545,7 @@ function mapApprovalProtocol(protocolAddress) {
   }
 }
 
+var abi = UniversalRouter.abi;
 var SwapRouter = /*#__PURE__*/function () {
   function SwapRouter() {}
   SwapRouter.swapCallParameters = function swapCallParameters(trades, config) {
@@ -703,7 +704,7 @@ var SwapRouter = /*#__PURE__*/function () {
   };
   return SwapRouter;
 }();
-SwapRouter.INTERFACE = /*#__PURE__*/new abi$7.Interface(UniversalRouter_json.abi);
+SwapRouter.INTERFACE = /*#__PURE__*/new abi$8.Interface(abi);
 
 var CryptopunkTrade = /*#__PURE__*/function (_NFTTrade) {
   function CryptopunkTrade(orders) {
@@ -741,7 +742,7 @@ var CryptopunkTrade = /*#__PURE__*/function (_NFTTrade) {
 }(NFTTrade);
 CryptopunkTrade.CRYPTOPUNK_ADDRESS = '0xb47e3cd837ddf8e4c57f05d70ab865de6e193bbb';
 
-var abi = [
+var abi$1 = [
 	{
 		inputs: [
 			{
@@ -2398,9 +2399,9 @@ var FoundationTrade = /*#__PURE__*/function (_NFTTrade) {
   };
   return FoundationTrade;
 }(NFTTrade);
-FoundationTrade.INTERFACE = /*#__PURE__*/new abi$7.Interface(abi);
+FoundationTrade.INTERFACE = /*#__PURE__*/new abi$8.Interface(abi$1);
 
-var abi$1 = [
+var abi$2 = [
 	{
 		inputs: [
 			{
@@ -4476,10 +4477,10 @@ var LooksRareV2Trade = /*#__PURE__*/function (_NFTTrade) {
   };
   return LooksRareV2Trade;
 }(NFTTrade);
-LooksRareV2Trade.INTERFACE = /*#__PURE__*/new abi$7.Interface(abi$1);
+LooksRareV2Trade.INTERFACE = /*#__PURE__*/new abi$8.Interface(abi$2);
 LooksRareV2Trade.ERC721_ORDER = 0;
 
-var abi$2 = [
+var abi$3 = [
 	{
 		anonymous: false,
 		inputs: [
@@ -4775,9 +4776,9 @@ var NFT20Trade = /*#__PURE__*/function (_NFTTrade) {
   };
   return NFT20Trade;
 }(NFTTrade);
-NFT20Trade.INTERFACE = /*#__PURE__*/new abi$7.Interface(abi$2);
+NFT20Trade.INTERFACE = /*#__PURE__*/new abi$8.Interface(abi$3);
 
-var abi$3 = [
+var abi$4 = [
 	{
 		inputs: [
 			{
@@ -5436,9 +5437,9 @@ var NFTXTrade = /*#__PURE__*/function (_NFTTrade) {
   };
   return NFTXTrade;
 }(NFTTrade);
-NFTXTrade.INTERFACE = /*#__PURE__*/new abi$7.Interface(abi$3);
+NFTXTrade.INTERFACE = /*#__PURE__*/new abi$8.Interface(abi$4);
 
-var abi$4 = [
+var abi$5 = [
 	{
 		inputs: [
 			{
@@ -8235,10 +8236,10 @@ var SeaportTrade = /*#__PURE__*/function (_NFTTrade) {
   };
   return SeaportTrade;
 }(NFTTrade);
-SeaportTrade.INTERFACE = /*#__PURE__*/new abi$7.Interface(abi$4);
+SeaportTrade.INTERFACE = /*#__PURE__*/new abi$8.Interface(abi$5);
 SeaportTrade.OPENSEA_CONDUIT_KEY = '0x0000007b02230091a7ed01230072f7006a004d60a8d4e71d599b8104250f0000';
 
-var abi$5 = [
+var abi$6 = [
 	{
 		inputs: [
 			{
@@ -9403,9 +9404,9 @@ var SudoswapTrade = /*#__PURE__*/function (_NFTTrade) {
   };
   return SudoswapTrade;
 }(NFTTrade);
-SudoswapTrade.INTERFACE = /*#__PURE__*/new abi$7.Interface(abi$5);
+SudoswapTrade.INTERFACE = /*#__PURE__*/new abi$8.Interface(abi$6);
 
-var abi$6 = [
+var abi$7 = [
 	{
 		anonymous: false,
 		inputs: [
@@ -10550,7 +10551,7 @@ var X2Y2Trade = /*#__PURE__*/function (_NFTTrade) {
   };
   return X2Y2Trade;
 }(NFTTrade);
-X2Y2Trade.INTERFACE = /*#__PURE__*/new abi$7.Interface(abi$6);
+X2Y2Trade.INTERFACE = /*#__PURE__*/new abi$8.Interface(abi$7);
 
 var UnwrapWETH = /*#__PURE__*/function () {
   function UnwrapWETH(amount, chainId, permit2) {

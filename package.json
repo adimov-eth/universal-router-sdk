@@ -1,6 +1,6 @@
 {
   "name": "@uniswap/universal-router-sdk",
-  "version": "3.4.3-auroria.1",
+  "version": "3.4.4-auroria.1",
   "repository": "https://github.com/adimov-eth/universal-router-sdk.git",
   "description": "sdk for integrating with the Universal Router contracts",
   "keywords": [
